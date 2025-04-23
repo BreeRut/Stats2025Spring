@@ -1,0 +1,629 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+# Male Egypt BPL
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_BPL=Men$BPL[Men$Population=="EGYPT"]
+summary(Egypt_BPL)
+sd(Egypt_BPL)
+hist(Egypt_BPL,main = "Egypt_BPL",col="tan")
+boxplot(Egypt_BPL,main="Egypt_BPL",col="tan")
+qqnorm(Egypt_BPL,pch =12,main="Egypt_BPL",col="tan",frame=FALSE)
+qqline(Egypt_BPL,col="gold",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_BPL=Men$BPL[Men$Population=="EGYPT"]
+logE_BPL=log(Egypt_BPL)
+summary(logE_BPL)
+sd(logE_BPL)
+hist(logE_BPL,main = "logE_BPL",col="tan")
+boxplot(logE_BPL,main="logE_BPL",col="tan")
+qqnorm(logE_BPL,pch =12,main="logE_BPL",col="tan",frame=FALSE)
+qqline(logE_BPL,col="gold",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_BPL=Men$BPL[Men$Population=="EGYPT"]
+SqE_BPL=sqrt(Egypt_BPL)
+summary(SqE_BPL)
+sd(SqE_BPL)
+hist(SqE_BPL,main = "SqE_BPL",col="tan")
+boxplot(SqE_BPL,main="SqE_BPLL",col="tan")
+qqnorm(SqE_BPL,pch =12,main="SqE_BPL",col="tan",frame=FALSE)
+qqline(SqE_BPL,col="gold",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_BPL=Men$BPL[Men$Population=="EGYPT"]
+RecE_BPL=1/Egypt_BPL
+summary(RecE_BPL)
+sd(RecE_BPL)
+hist(RecE_BPL,main = "RecE_BPL",col="tan")
+boxplot(RecE_BPL,main="RecE_BPL",col="tan")
+qqnorm(RecE_BPL,pch =12,main="RecE_BPL",col="tan",frame=FALSE)
+qqline(RecE_BPL,col="gold",lwd=3)
+```
+
+# Male Egypt NPH
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_NPH=Men$NPH[Men$Population=="EGYPT"]
+summary(Egypt_NPH)
+sd(Egypt_NPH)
+hist(Egypt_NPH,main = "Egypt_NPH",col="gold")
+boxplot(Egypt_NPH,main="Egypt_NPH",col="gold")
+qqnorm(Egypt_NPH,pch =12,main="Egypt_NPH",col="gold",frame=FALSE)
+qqline(Egypt_NPH,col="tan",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_NPH=Men$NPH[Men$Population=="EGYPT"]
+logE_NPH=log(Egypt_NPH)
+summary(logE_NPH)
+sd(logE_NPH)
+hist(logE_NPH,main = "logE_NPH",col="gold")
+boxplot(logE_NPH,main="logE_NPH",col="gold")
+qqnorm(logE_NPH,pch =12,main="logE_NPH",col="gold",frame=FALSE)
+qqline(logE_NPH,col="tan",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_NPH=Men$NPH[Men$Population=="EGYPT"]
+SqE_NPH=sqrt(Egypt_NPH)
+summary(SqE_NPH)
+sd(SqE_NPH)
+hist(SqE_NPH,main = "SqE_NPH",col="gold")
+boxplot(SqE_NPH,main="SqE_NPH",col="gold")
+qqnorm(SqE_NPH,pch =12,main="SqE_NPH",col="gold",frame=FALSE)
+qqline(SqE_NPH,col="tan",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Egypt_NPH=Men$NPH[Men$Population=="EGYPT"]
+RecE_NPH=1/Egypt_NPH
+summary(RecE_NPH)
+sd(RecE_NPH)
+hist(RecE_NPH,main = "RecE_NPHH",col="gold")
+boxplot(RecE_NPH,main="RecE_NPH",col="gold")
+qqnorm(RecE_NPH,pch =12,main="RecE_NPH",col="gold",frame=FALSE)
+qqline(RecE_NPH,col="tan",lwd=3)
+```
+
+# Male Egypt BPL vs NPH-Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Egypt_BPL,SqE_NPH,conf.level = .95)
+```
+
+# Male Inuit BPL
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_BPL=Men$BPL[Men$Population=="ESKIMO"]
+summary(Inuit_BPL)
+sd(Inuit_BPL)
+hist(Inuit_BPL,main = "Inuit_BPL",col="blue")
+boxplot(Inuit_BPL,main="Inuit_BPL",col="blue")
+qqnorm(Inuit_BPL,pch =12,main="Inuit_BPL",col="red",frame=FALSE)
+qqline(Inuit_BPL,col="blue",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_BPL=Men$BPL[Men$Population=="ESKIMO"]
+logI_BPL=log(Inuit_BPL)
+summary(logI_BPL)
+sd(logI_BPL)
+hist(logI_BPL,main = "logI_BPL",col="blue")
+boxplot(logI_BPL,main="logI_BPL",col="blue")
+qqnorm(logI_BPL,pch =12,main="logI_BPL",col="red",frame=FALSE)
+qqline(logI_BPL,col="blue",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_BPL=Men$BPL[Men$Population=="ESKIMO"]
+SqI_BPL=sqrt(Inuit_BPL)
+summary(SqI_BPL)
+sd(SqI_BPL)
+hist(SqI_BPL,main = "SqI_BPL",col="blue")
+boxplot(SqI_BPL,main="SqI_BPL",col="blue")
+qqnorm(SqI_BPL,pch =12,main="SqI_BPL",col="red",frame=FALSE)
+qqline(SqI_BPL,col="blue",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_BPL=Men$BPL[Men$Population=="ESKIMO"]
+RecI_BPL=1/Inuit_BPL
+summary(RecI_BPL)
+sd(RecI_BPL)
+hist(RecI_BPL,main = "RecI_BPL",col="blue")
+boxplot(RecI_BPL,main="RecI_BPL",col="blue")
+qqnorm(RecI_BPL,pch =12,main="RecI_BPL",col="red",frame=FALSE)
+qqline(RecI_BPL,col="blue",lwd=3)
+```
+
+# Male Inuit NPH
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_NPH=Men$NPH[Men$Population=="ESKIMO"]
+summary(Inuit_NPH)
+sd(Inuit_NPH)
+hist(Inuit_NPH,main = "Inuit_NPH",col="red")
+boxplot(Inuit_NPH,main="Inuit_NPH",col="red")
+qqnorm(Inuit_NPH,pch =12,main="Inuit_NPH",col="blue",frame=FALSE)
+qqline(Inuit_NPH,col="red",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_NPH=Men$NPH[Men$Population=="ESKIMO"]
+logI_NPH=log(Inuit_NPH)
+summary(logI_NPH)
+sd(logI_NPH)
+hist(logI_NPH,main = "logI_NPH",col="red")
+boxplot(logI_NPH,main="logI_NPH",col="red")
+qqnorm(logI_NPH,pch =12,main="logI_NPH",col="blue",frame=FALSE)
+qqline(logI_NPH,col="red",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_NPH=Men$NPH[Men$Population=="ESKIMO"]
+SqI_NPH=sqrt(Inuit_NPH)
+summary(SqI_NPH)
+sd(SqI_NPH)
+hist(SqI_NPH,main = "SqI_NPH",col="red")
+boxplot(SqI_NPH,main="SqI_NPH",col="red")
+qqnorm(SqI_NPH,pch =12,main="SqI_NPH",col="blue",frame=FALSE)
+qqline(SqI_NPH,col="red",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+Inuit_NPH=Men$NPH[Men$Population=="ESKIMO"]
+RecI_NPH=1/Inuit_NPH
+summary(RecI_NPH)
+sd(RecI_NPH)
+hist(RecI_NPH,main = "RecI_NPH",col="red")
+boxplot(RecI_NPH,main="RecI_NPH",col="red")
+qqnorm(RecI_NPH,pch =12,main="RecI_NPH",col="blue",frame=FALSE)
+qqline(RecI_NPH,col="red",lwd=3)
+```
+
+# Male Inuit BPL vs NPH- Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Inuit_BPL,Inuit_NPH,conf.level = .95)
+```
+
+# Male Egypt BPL vS Male Inuit BPL-Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Egypt_BPL,Inuit_BPL,conf.level = .95)
+```
+
+# Male Egypt NPH vs Male Inuit NPH
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(SqE_NPH,Inuit_NPH,conf.level = .95)
+```
+
+
+# Female Egypt BPL
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_BPL=Men$BPL2[Men$Population2=="EGYPT"]
+summary(FEgypt_BPL)
+sd(FEgypt_BPL)
+hist(FEgypt_BPL,main = "Female Egypt_BPL",col="peachpuff3")
+boxplot(FEgypt_BPL,main="Female Egypt_BPL",col="peachpuff3")
+qqnorm(FEgypt_BPL,pch =12,main="Female Egypt_BPL",col="peachpuff3",frame=FALSE)
+qqline(FEgypt_BPL,col="goldenrod",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_BPL=Men$BPL2[Men$Population2=="EGYPT"]
+logFE_BPL=log(FEgypt_BPL)
+summary(logFE_BPL)
+sd(logFE_BPL)
+hist(logFE_BPL,main = "logFemale Egypt_BPL",col="peachpuff3")
+boxplot(logFE_BPL,main="logFemale Egypt_BPL",col="peachpuff3")
+qqnorm(logFE_BPL,pch =12,main="logFemale Egypt_BPL",col="peachpuff3",frame=FALSE)
+qqline(logFE_BPL,col="goldenrod",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_BPL=Men$BPL2[Men$Population2=="EGYPT"]
+SqFE_BPL=sqrt(FEgypt_BPL)
+summary(SqFE_BPL)
+sd(SqFE_BPL)
+hist(SqFE_BPL,main = "SqFemale Egypt_BPL",col="peachpuff3")
+boxplot(SqFE_BPL,main="SqFemale Egypt_BPL",col="peachpuff3")
+qqnorm(SqFE_BPL,pch =12,main="SqFemale Egypt_BPL",col="peachpuff3",frame=FALSE)
+qqline(SqFE_BPL,col="goldenrod",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_BPL=Men$BPL2[Men$Population2=="EGYPT"]
+RecFE_BPL=1/FEgypt_BPL
+summary(RecFE_BPL)
+sd(RecFE_BPL)
+hist(RecFE_BPL,main = "RecFemale Egypt_BPL",col="peachpuff3")
+boxplot(RecFE_BPL,main="RecFemale Egypt_BPL",col="peachpuff3")
+qqnorm(RecFE_BPL,pch =12,main="RecFemale Egypt_BPL",col="peachpuff3",frame=FALSE)
+qqline(RecFE_BPL,col="goldenrod",lwd=3)
+```
+
+
+# Female Egypt NPH
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_NPH=Men$NPH2[Men$Population2=="EGYPT"]
+summary(FEgypt_NPH)
+sd(FEgypt_NPH)
+hist(FEgypt_NPH,main = "Female Egypt_NPH",col="goldenrod")
+boxplot(FEgypt_NPH,main="Female Egypt_NPH",col="goldenrod")
+qqnorm(FEgypt_NPH,pch =12,main="Female Egypt_NPH",col="goldenrod",frame=FALSE)
+qqline(FEgypt_NPH,col="peachpuff3",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_NPH=Men$NPH2[Men$Population2=="EGYPT"]
+logFE_NPH=log(FEgypt_NPH)
+summary(logFE_NPH)
+sd(logFE_NPH)
+hist(logFE_NPH,main = "logFemale Egypt_NPH",col="goldenrod")
+boxplot(logFE_NPH,main="logFemale Egypt_NPH",col="goldenrod")
+qqnorm(logFE_NPH,pch =12,main="logFemale Egypt_NPH",col="goldenrod",frame=FALSE)
+qqline(logFE_NPH,col="peachpuff3",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_NPH=Men$NPH2[Men$Population2=="EGYPT"]
+SqFE_NPH=sqrt(FEgypt_NPH)
+summary(SqFE_NPH)
+sd(SqFE_NPH)
+hist(SqFE_NPH,main = "SqFemale Egypt_NPH",col="goldenrod")
+boxplot(SqFE_NPH,main="SqFemale Egypt_NPH",col="goldenrod")
+qqnorm(SqFE_NPH,pch =12,main="SqFemale Egypt_NPH",col="goldenrod",frame=FALSE)
+qqline(SqFE_NPH,col="peachpuff3",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FEgypt_NPH=Men$NPH2[Men$Population2=="EGYPT"]
+RecFE_NPH=1/FEgypt_NPH
+summary(RecFE_NPH)
+sd(RecFE_NPH)
+hist(RecFE_NPH,main = "RecFemale Egypt_NPH",col="goldenrod")
+boxplot(RecFE_NPH,main="RecFemale Egypt_NPH",col="goldenrod")
+qqnorm(RecFE_NPH,pch =12,main="RecFemale Egypt_NPH",col="goldenrod",frame=FALSE)
+qqline(RecFE_NPH,col="peachpuff3",lwd=3)
+```
+
+
+# Female Egypt BPL vs NPH-Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(RecFE_BPL,FEgypt_NPH,conf.level = .95)
+```
+
+
+# Female Inuit BPL
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_BPL=Men$BPL2[Men$Population2=="ESKIMO"]
+summary(FInuit_BPL)
+sd(FInuit_BPL)
+hist(FInuit_BPL,main = "Female Inuit_BPL",col="navy")
+boxplot(FInuit_BPL,main="Female Inuit_BPL",col="navy")
+qqnorm(FInuit_BPL,pch =12,main="Female Inuit_BPL",col="navy",frame=FALSE)
+qqline(FInuit_BPL,col="maroon",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_BPL=Men$BPL2[Men$Population2=="ESKIMO"]
+logFI_BPL=log(FInuit_BPL)
+summary(logFI_BPL)
+sd(logFI_BPL)
+hist(logFI_BPL,main = "logFemale Inuit_BPL",col="navy")
+boxplot(logFI_BPL,main="logFemale Inuit_BPL",col="navy")
+qqnorm(logFI_BPL,pch =12,main="logFemale Inuit_BPL",col="navy",frame=FALSE)
+qqline(logFI_BPL,col="maroon",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_BPL=Men$BPL2[Men$Population2=="ESKIMO"]
+SqFI_BPL=sqrt(FInuit_BPL)
+summary(SqFI_BPL)
+sd(SqFI_BPL)
+hist(SqFI_BPL,main = "SqFemale Inuit_BPL",col="navy")
+boxplot(SqFI_BPL,main="SqFemale Inuit_BPL",col="navy")
+qqnorm(SqFI_BPL,pch =12,main="SqFemale Inuit_BPL",col="navy",frame=FALSE)
+qqline(SqFI_BPL,col="maroon",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_BPL=Men$BPL2[Men$Population2=="ESKIMO"]
+RecFI_BPL=1/FInuit_BPL
+summary(RecFI_BPL)
+sd(RecFI_BPL)
+hist(RecFI_BPL,main = "RecFemale Inuit_BPL",col="navy")
+boxplot(RecFI_BPL,main="RecFemale Inuit_BPL",col="navy")
+qqnorm(RecFI_BPL,pch =12,main="RecFemale Inuit_BPL",col="navy",frame=FALSE)
+qqline(RecFI_BPL,col="maroon",lwd=3)
+```
+
+
+# Female Inuit NPH
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_NPH=Men$NPH2[Men$Population2=="ESKIMO"]
+summary(FInuit_NPH)
+sd(FInuit_NPH)
+hist(FInuit_NPH,main = "Female Inuit_NPH",col="maroon")
+boxplot(FInuit_NPH,main="Female Inuit_NPH",col="maroon")
+qqnorm(FInuit_NPH,pch =12,main="Female Inuit_NPH",col="maroon",frame=FALSE)
+qqline(FInuit_NPH,col="navy",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_NPH=Men$NPH2[Men$Population2=="ESKIMO"]
+logFI_NPH=log(FInuit_NPH)
+summary(logFI_NPH)
+sd(logFI_NPH)
+hist(logFI_NPH,main = "logFemale Inuit_NPH",col="maroon")
+boxplot(logFI_NPH,main="logFemale Inuit_NPH",col="maroon")
+qqnorm(logFI_NPH,pch =12,main="logFemale Inuit_NPH",col="maroon",frame=FALSE)
+qqline(logFI_NPH,col="navy",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_NPH=Men$NPH2[Men$Population2=="ESKIMO"]
+SqFI_NPH=sqrt(FInuit_NPH)
+summary(SqFI_NPH)
+sd(SqFI_NPH)
+hist(SqFI_NPH,main = "SqFemale Inuit_NPH",col="maroon")
+boxplot(SqFI_NPH,main="SqFemale Inuit_NPH",col="maroon")
+qqnorm(SqFI_NPH,pch =12,main="SqFemale Inuit_NPH",col="maroon",frame=FALSE)
+qqline(SqFI_NPH,col="navy",lwd=3)
+```
+
+
+```{r}
+Men=read.csv("Project Data.csv")
+FInuit_NPH=Men$NPH2[Men$Population2=="ESKIMO"]
+RecFI_NPH=1/FInuit_NPH
+summary(RecFI_NPH)
+sd(RecFI_NPH)
+hist(RecFI_NPH,main = "RecFemale Inuit_NPH",col="maroon")
+boxplot(RecFI_NPH,main="RecFemale Inuit_NPH",col="maroon")
+qqnorm(RecFI_NPH,pch =12,main="RecFemale Inuit_NPH",col="maroon",frame=FALSE)
+qqline(RecFI_NPH,col="navy",lwd=3)
+```
+
+
+# Female Inuit BPL vs NPH-Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(SqFI_BPL,FInuit_NPH,conf.level = .95)
+```
+
+
+# Female Egypt BPL vS Female Inuit BPL-Welch Two Sample T-Test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(RecFE_BPL,SqFI_BPL,conf.level = .95)
+```
+
+
+# Female Egypt NPH vs Female Inuit NPH-Welch Two Sample T-Test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(FEgypt_NPH,FInuit_NPH,conf.level = .95)
+```
+
+
+# Male Egypt BPL vs Female Egypt BPL-Welch Two Sample t-test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Egypt_BPL,RecFE_BPL,conf.level = .95)
+```
+
+
+# Male Egypt NPH vs Female Egypt NPH-Welch Two Sample T-Test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(SqE_NPH,FEgypt_NPH,conf.level = .95)
+```
+
+# Male Inuit BPL vs Female Inuit BPL-Welch Two Sample T-Test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Inuit_BPL,SqFI_BPL,conf.level = .95)
+
+```
+
+
+# Male Inuit NPH vs Female Inuit NPH-Welch Two Sample T-Test
+```{r}
+Men=read.csv("Project Data.csv")
+t.test(Inuit_NPH,FInuit_NPH,conf.level = .95)
+```
+
+
+# BPL Box Plots
+```{r}
+par(mfrow=c(1,4))
+boxplot(Egypt_BPL,main="Egypt_BPL",col="tan")
+boxplot(FEgypt_BPL,main="Female Egypt_BPL",col="peachpuff3")
+boxplot(Inuit_BPL,main="Inuit_BPL",col="blue")
+boxplot(FInuit_BPL,main="Female Inuit_BPL",col="navy")
+```
+
+
+# NPH Box Plots
+```{r}
+par(mfrow=c(1,4))
+boxplot(Egypt_NPH,main="Egypt_NPH",col="gold")
+boxplot(FEgypt_NPH,main="Female Egypt_NPH",col="goldenrod")
+boxplot(Inuit_NPH,main="Inuit_NPH",col="red")
+boxplot(FInuit_NPH,main="Female Inuit_NPH",col="maroon")
+```
+
+# Male Inuit BPL vs Female Inuit BPL vs Male Egypt BPL vs Female Egypt BPL-Two-Way ANOVA
+```{r}
+Man_Woman=read.csv("Project Data2.csv")
+BPLMale=aov(BPL~Sex+Population+Sex:Population,data=Man_Woman)
+summary(BPLMale)
+```
+
+# Tukey for BPL for Sex
+```{r}
+TukeyHSD(BPLMale,"Sex",conf.level = 0.95)
+plot(TukeyHSD(BPLMale,"Sex",conf.level = 0.95),las=1)
+```
+
+
+# Tukey for BPL Population
+```{r}
+TukeyHSD(BPLMale,"Population",conf.level = 0.95)
+plot(TukeyHSD(BPLMale,"Population",conf.level = 0.95),las=1)
+```
+
+
+# Regretion beginnig analysis
+```{r}
+library(corrplot)
+library(car)
+library(olsrr)
+Man_Woman=read.csv("Project Data2.csv")
+summary(Man_Woman)
+EIBPLNPH=cor(Man_Woman[,3:5])
+corrplot(EIBPLNPH)
+pairs(Man_Woman[,3:5])
+```
+
+
+# Regretion for BPL
+```{r}
+BL=lm(BPL~Sex+Population,data=Man_Woman)
+summary(BL)
+vif(BL)
+mean(vif(BL))
+plot(BL)
+interaction.plot(Man_Woman$Sex,Man_Woman$Population,Man_Woman$BPL)
+```
+
+
+# Male Inuit NPH vs Female Inuit NPH vs Male Egypt NPH vs Female Egypt NPH-Two-Way ANOVA
+```{r}
+Man_Woman=read.csv("Project Data2.csv")
+NPHMale=aov(NPH~Sex+Population+Sex:Population,data=Man_Woman)
+summary(NPHMale)
+```
+
+# Tukey for NPH Sex
+```{r}
+TukeyHSD(NPHMale,"Sex",conf.level = 0.95)
+plot(TukeyHSD(NPHMale,"Sex",conf.level = 0.95),las=1)
+```
+
+
+# Tukey for NPH Population
+```{r}
+TukeyHSD(NPHMale,"Population",conf.level = 0.95)
+plot(TukeyHSD(NPHMale,"Population",conf.level = 0.95),las=1)
+```
+
+
+# Regretion for NPH
+```{r}
+library(corrplot)
+library(car)
+library(olsrr)
+Man_Woman=read.csv("Project Data2.csv")
+NH=lm(NPH~Sex+Population,data=Man_Woman)
+summary(NH)
+vif(NH)
+mean(vif(NH))
+plot(NH)
+interaction.plot(Man_Woman$Sex,Man_Woman$Population,Man_Woman$NPH)
+```
+
+
+# BPL Side by Side Boxplots
+```{r}
+EB=Man_Woman$BPL[Man_Woman$Population=="EGYPT"]
+IB=Man_Woman$BPL[Man_Woman$Population=="ESKIMO"]
+par(mfrow=c(1,2))
+boxplot(EB,main="Egypt BPL",col="goldenrod2")
+boxplot(IB,main="Inuit BPL",col="blue3")
+```
+
+
+# NPH Side by Side Boxplots
+```{r}
+EN=Man_Woman$NPH[Man_Woman$Population=="EGYPT"]
+IN=Man_Woman$NPH[Man_Woman$Population=="ESKIMO"]
+par(mfrow=c(1,2))
+boxplot(EN,main="Egypt NPH",col="tan2")
+boxplot(IN,main="Inuit NPH",col="red3")
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
